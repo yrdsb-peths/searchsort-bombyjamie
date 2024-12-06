@@ -42,12 +42,13 @@ public class Util {
      * Generate a random array of size n where each element is between 0 and n-1.
      */
     public static int[] generateRandomArray(int n, Long seed) {
-        // Create a new integer array of size n
-
-        // Shuffle the array using the Shuffle method with the given seed
-
-        // Return the shuffled array
-        return new int[n];
+        int[] arr = new int[n];
+        Random random = new Random(seed);
+        
+        for (int i = 0; i < n; i++) {
+            arr[i] = random.nextInt(n-1); // Generates random integers between 0 and 99
+        }
+        return arr;
     }
 
     /**
