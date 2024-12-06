@@ -49,5 +49,5 @@ public class BinarySearch extends Search {
         } else {
             return binarySearchHelper(arr, target, low, mid - 1);
         }
-
+    }
 }
