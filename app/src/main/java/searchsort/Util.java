@@ -25,7 +25,13 @@ public class Util {
         Random random = (seed != null) ? new Random(seed) : new Random();
         // Note: This generates a random number between 0 and 5:
         // int randomNum = random.nextInt(6);
-        
+        for (int i = arr.length - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1); 
+            
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
         return arr;
     }
 
