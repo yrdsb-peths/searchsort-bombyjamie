@@ -46,7 +46,7 @@ public class Util {
         Random random = new Random(seed);
         
         for (int i = 0; i < n; i++) {
-            arr[i] = random.nextInt(n-1); // Generates random integers between 0 and 99
+            arr[i] = random.nextInt(n-1); 
         }
         return arr;
     }
@@ -55,6 +55,11 @@ public class Util {
      * Check if the array arr is sorted in ascending order.
      */
     public static boolean isSorted(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < arr[i - 1]) {
+                return false; 
+            }
+        }
         return true;
     }
 }
