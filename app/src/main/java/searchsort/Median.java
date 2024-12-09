@@ -91,7 +91,26 @@ public class Median {
      * Find the median of the array arr using InsertionSort algorithm.
      */
     public double findInsertion(int[] arr) {
-        return 0;
-    }
+        insertionSort(arr);
 
+        int n = arr.length;
+        if (n % 2 == 1) {
+            return arr[n / 2];
+        } else {
+            return (arr[(n - 1) / 2] + arr[n / 2]) / 2.0;
+        }
+    }
+    public void insertionSort(int[] a) {
+        int N = a.length;
+        for (int i = 1; i < N; i++){
+           for (int j = i; j > 0; j--){
+              if (a[j-1] > a[j]){
+                 exch(a, j, j-1);  //exchange
+              } else {
+                 break;
+              }
+           }
+        }
+     } 
+     
 }
