@@ -53,9 +53,40 @@ public class Median {
      * Find the median of the array arr using MergeSort algorithm.
      */
     public double findMerge(int[] arr) {
-        return 0;
-    }
+        int n = arr.length;
+        int[] aux = new int[n]; 
+       
+        mergeSort(arr, aux, 0, n - 1);
 
+        if (n % 2 == 1) {
+            return arr[n / 2]; 
+        } else {
+            return (arr[(n - 1) / 2] + arr[n / 2]) / 2.0; 
+        }
+    }
+    private void mergeSort(int[] a, int[] aux, int lo, int hi) {
+        // Array is sorted if lo is greater than hi
+        if (lo >= hi) return;
+        int mid = (lo + hi) / 2;         //index of middle element
+        mergeSort(a, aux, lo, mid);      //Sort left side of array
+        mergeSort(a, aux, mid + 1, hi);  //Sort right side of array
+        merge(a, aux, lo, mid, hi);      //Combine both halves
+    
+    } 
+    
+    public static void merge(int[] a, int[] aux, int lo, int mid, int hi) {
+        for (int k = lo; k <= hi; k++) // Copy elements to auxiliary array
+            aux[k] = a[k];
+        int i = lo;
+        j = mid+1;
+        for (int k = lo; k <= hi; k++) {  // Merge back to original array
+            if (i > mid)		a[k] = aux[j++];               
+            else if (j > hi)	a[k] = aux[i++];
+            else if (aux[j] < aux[i])   a[k] = aux[j++];
+            else                	a[k] = aux[i++];
+        }
+    }
+    
     /**
      * Find the median of the array arr using InsertionSort algorithm.
      */
