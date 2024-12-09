@@ -36,10 +36,11 @@ public class MergeSort extends Sort {
      * Merge the two sorted arrays left and right into the array arr.
      */
     private void merge(int[] arr, int[] left, int[] right) {
-        int i = 0; 
-        int j = 0; 
-        int k = 0; 
+        int i = 0; // Pointer for left array
+        int j = 0; // Pointer for right array
+        int k = 0; // Pointer for the merged array
 
+        // Merge elements until one of the arrays is fully traversed
         while (i < left.length && j < right.length) {
             if (left[i] <= right[j]) {
                 arr[k++] = left[i++];
@@ -48,10 +49,12 @@ public class MergeSort extends Sort {
             }
         }
 
+        // Copy remaining elements from left array, if any
         while (i < left.length) {
             arr[k++] = left[i++];
         }
 
+        // Copy remaining elements from right array, if any
         while (j < right.length) {
             arr[k++] = right[j++];
         }
